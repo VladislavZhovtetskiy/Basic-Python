@@ -13,6 +13,7 @@ Each subdirectory focuses on a specific Python concept or a standalone practical
 | [geometry_problem](./geometry_problem)   | `math` module, Type casting, Exception handling |   `Done`   | Computes geometric parameters (e.g., volume and area).        |
 | [nutrients](./nutrients)   | Type casting, Exception handling, Dictionary |   `Done`   | Daily kilocalorie requirement calculated using the Mifflin-St Jeor formula.        |
 | [random_password](./random_password)   | Dictionary, Lists, For loop, Random |   `Done`   | Easy password generator for terminal.        |
+| [students_avarage](./students_avarage)   | Try\except, File Hadling, Dictionary, List, Const |   `Done`   | Script that calculate avarage score from file.        |
 
 
 ---
