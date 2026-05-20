@@ -7,6 +7,14 @@ Avarage socre in new file.
 
 # Solution
 # Take data and contain it to list
+# Import os(2 files will save in avarage_score folder)
+
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+STUDENTS_FILE = os.path.join(BASE_DIR, "students_data.txt")
+AVERAGE_FILE = os.path.join(BASE_DIR, "avarage_score.txt")
 
 data = ["Maks", 89, 56, 78, 90, "Anya", 67, 69, 52, 14, 88, "Jhon", 91, 14, 67, 89]
 
@@ -14,7 +22,7 @@ data = ["Maks", 89, 56, 78, 90, "Anya", 67, 69, 52, 14, 88, "Jhon", 91, 14, 67, 
 # Create a function that save it to students_data.txt
 def get_data():
     try:
-        with open("students_data.txt", "w", encoding="utf-8") as file:
+        with open(STUDENTS_FILE, "w", encoding="utf-8") as file:
             # write each item on its own line as string
             file.write("\n".join(str(item) for item in data))
     except FileNotFoundError:
@@ -26,7 +34,7 @@ def get_data():
 # Get gata and calculate average score
 def avarage_score():
     try:
-        with open("students_data.txt", encoding="utf-8") as f:
+        with open(STUDENTS_FILE, encoding="utf-8") as f:
             lines = [line.strip() for line in f if line.strip()]
 
         averages = {}
@@ -58,7 +66,7 @@ def write_avar_score():
         # ensure data file exists
         get_data()
         averages = avarage_score()
-        with open("avarage_score.txt", "w", encoding="utf-8") as new_file:
+        with open(AVERAGE_FILE, "w", encoding="utf-8") as new_file:
             for name, avg in averages.items():
                 new_file.write(f"{name}: {avg}\n")
     except FileNotFoundError:
@@ -68,4 +76,6 @@ def write_avar_score():
         return
 
 
+print("Program is starting...")
 write_avar_score()
+print("Done. Check avarage_score.txt")
