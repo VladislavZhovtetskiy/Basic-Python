@@ -16,20 +16,17 @@ Surface of the cone is 500 pi cm²
 # Import math
 import math
 
-# Search radius
-radius = (500 * math.pi) / (25 * math.pi)
+# Static script
+def calculate_static_pyramid_area():
+    radius = (500 * math.pi) / (25 * math.pi)
+    half_of_the_base = math.sqrt((25 ** 2 - 20 ** 2))
+    base = half_of_the_base * 2
+    lateral_area_pyramid = (base * 3 * radius) / 2
+    print(f"Static calculation: The lateral surface area equal {int(round(lateral_area_pyramid, 1))} cm²")
 
-# Search half of the base of the pyramid
-half_of_the_base = math.sqrt((25 ** 2 - 20 ** 2))
 
-# Search all base
-base = half_of_the_base * 2
 
-# Search the lateral surface area of a pyramid
-lateral_area_pyramid = (base * 3 * radius) / 2
-print(f"The lateral surface area of a pyramid equal {int(round(lateral_area_pyramid, 1))}")
 
-# Interactive variation of this task:
 
 def get_geometry_data():
     while True:
@@ -67,11 +64,17 @@ def calculate_pyramid_lateral_area(side_edge, apothem):
     lateral_area = (perimeter * apothem) / 2
     return lateral_area
 
-edge_val, apothem_val = get_geometry_data()
-final_area = calculate_pyramid_lateral_area(edge_val, apothem_val)
+def main():
+    calculate_static_pyramid_area()
+    print("-" * 30)
 
-print("\n--- Geometric Results ---")
-print(f"Calculated Apothem (Radius): {int(round(apothem_val))} cm")
-print(f"The lateral area of the pyramid is: {int(round(final_area))} cm²")
+    print("Interactive Calculation:")
+    edge_val, apothem_val = get_geometry_data()
+    final_area = calculate_pyramid_lateral_area(edge_val, apothem_val)
 
+    print("\n--- Geometric Results ---")
+    print(f"Calculated Apothem (Radius): {apothem_val:.2f} cm")
+    print(f"The lateral area of the pyramid is: {final_area:.2f} cm²")
 
+if __name__ == "__main__":
+    main()
